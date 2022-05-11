@@ -1,0 +1,11 @@
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+
+public class Indexcontroller{
+
+  
+    public String index(){
+        return "Olá mundo";
+    }
+}
