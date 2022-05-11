@@ -8,8 +8,9 @@ import com.api.PetGoapi.model.input.ClienteInput;
 
 import lombok.AllArgsConstructor;
 
-@Component
+
 @AllArgsConstructor
+@Component
 public class ClienteAssembler {
 	public ModelMapper modelMapper;
 	
