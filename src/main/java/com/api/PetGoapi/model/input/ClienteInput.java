@@ -7,8 +7,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ClienteInput {
-
+	
 	private EnderecoInput endereco;
 	private IdentificacaoInput identificacao;
 	private LoginInput login;
+	private String telefone;
 }
