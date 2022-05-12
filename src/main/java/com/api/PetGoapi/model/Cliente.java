@@ -3,6 +3,7 @@ package com.api.PetGoapi.model;
 import java.time.OffsetDateTime;
 
 import javax.persistence.Embedded;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
 public class Cliente{
 	@EqualsAndHashCode.Include
 	@Id
@@ -20,6 +22,7 @@ public class Cliente{
 	private Long id;
 	private OffsetDateTime dataCliente;
 	private String nome;
+	private String cpf;
 	private String telefone;
 	private String email;
 	private String login;
