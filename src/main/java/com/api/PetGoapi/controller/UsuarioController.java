@@ -1,6 +1,5 @@
 package com.api.PetGoapi.controller;
 
-import java.time.OffsetDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +10,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.PetGoapi.DTO.request.ClienteDto;
 //import com.api.PetGoapi.Assembler.ClienteAssembler;
 import com.api.PetGoapi.model.Cliente;
-import com.api.PetGoapi.model.input.ClienteInput;
 import com.api.PetGoapi.service.ClienteService;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 
 @AllArgsConstructor
 @RestController
@@ -25,15 +23,20 @@ import lombok.Getter;
 public class UsuarioController {
 	
 	//private ClienteAssembler clienteAssembler;
-	
+	@Autowired
 	private ClienteService clienteService;
 	
 	@PostMapping
-	public ResponseEntity<Cliente> cadastrar(@RequestBody Cliente cliente /*ClienteInput clienteInput*/){
-	//	Cliente novoCliente = clienteAssembler.toEntity(clienteInput);
+	public ResponseEntity<Cliente> cadastrar(@RequestBody ClienteDto clienteDto /*ClienteInput clienteInput*/){
+		//Cliente novoCliente = clienteAssembler.toEntity(clienteDto);
+	//	novoCliente.setDataCliente(OffsetDateTime.now());
+	//	clienteInput.setDataCliente(OffsetDateTime.now());
 		
-		cliente.setDataCliente(OffsetDateTime.now());
-		return ResponseEntity.ok(clienteService.save(cliente));
+	//	cliente.setDataCliente(OffsetDateTime.now());
+		if(!clienteDto.getSenha().contentEquals(clienteDto.getConfirmaSenha())) {
+			return ResponseEntity.badRequest().build();
+		}
+		return ResponseEntity.ok(clienteService.save(clienteDto.build()));
 	}
 	@GetMapping("/usuarios")
 	public ResponseEntity<List<Cliente>> listar(){
