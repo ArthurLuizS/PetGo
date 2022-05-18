@@ -2,33 +2,37 @@ package com.api.PetGoapi.model;
 
 import java.time.OffsetDateTime;
 
-import javax.persistence.Embedded;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-import lombok.EqualsAndHashCode;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-@Getter
-@Setter
+import lombok.experimental.Accessors;
+@Accessors(chain = true)
 @Entity
-public class Cliente{
-	@EqualsAndHashCode.Include
+//@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Getter
+@NoArgsConstructor
+@Setter
+@AllArgsConstructor
+@DiscriminatorValue("Cliente")
+public class Cliente extends Usuario{
+/*	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long id; */
 	private OffsetDateTime dataCliente;
-	private String nome;
+//	private String nome;
 	private String cpf;
-	private String telefone;
-	private String email;
-	private String login;
-	private String senha;
-	@Embedded
-	private Endereco endereco;
+	private String nomeCao;
+//	private String telefone;
+//	private String email;
+//	private String login;
+//	private String senha;
+	
+//	private Endereco endereco;
 	
 
 }
