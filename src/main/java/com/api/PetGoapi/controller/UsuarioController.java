@@ -35,6 +35,9 @@ public class UsuarioController {
 	//	clienteInput.setDataCliente(OffsetDateTime.now());
 		
 	//	cliente.setDataCliente(OffsetDateTime.now());
+		
+
+		
 		if(!clienteDto.getSenha().contentEquals(clienteDto.getConfirmaSenha())) {
 			return ResponseEntity.badRequest().build();
 		}
@@ -47,6 +50,7 @@ public class UsuarioController {
 	
 	@GetMapping("{clienteId}")
 	public ResponseEntity<ClienteResponseDto> buscar(@PathVariable Long clienteId){
+		
 		return ResponseEntity.ok(clienteService.buscar(clienteId));
 	}
 }
