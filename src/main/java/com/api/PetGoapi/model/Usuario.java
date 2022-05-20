@@ -1,7 +1,8 @@
 package com.api.PetGoapi.model;
 
+import java.time.OffsetDateTime;
+
 import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,21 +20,23 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@DiscriminatorColumn(name = "DTYPE")
-public class Usuario {
+@DiscriminatorColumn(name = "tipo")
+public abstract class Usuario {
 	@EqualsAndHashCode.Include
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.TABLE)
+	 @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String nome;
 	private String telefone;
 	private String login;
 	private String email;
 	private String senha;
-	@Embedded
-	private Endereco endereco;
+	private String cpf;
+	private OffsetDateTime dataCliente;
+	
 	
 	
 }

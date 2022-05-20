@@ -1,16 +1,14 @@
 package com.api.PetGoapi.service;
 
+import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.api.PetGoapi.DTO.request.ClienteDto;
-import com.api.PetGoapi.DTO.response.ClienteResponseDto;
 import com.api.PetGoapi.model.Cliente;
-import com.api.PetGoapi.model.input.ClienteInput;
 import com.api.PetGoapi.repository.ClienteRepository;
 
 import lombok.AllArgsConstructor;
@@ -20,12 +18,22 @@ import lombok.AllArgsConstructor;
 public class ClienteService {
 
 	private ClienteRepository clienteRepository;
+//	private UsuarioRepository usuarioRepository;
 	
 	
 	@Transactional
-	public ClienteResponseDto save(Cliente novoCliente) {
-		 return new ClienteResponseDto(clienteRepository.save(novoCliente));
-		
+	public Cliente save(Cliente novoCliente) {
+	/*	Usuario novoUsuario = new Usuario();
+		novoUsuario.setEmail(novoCliente.getEmail());
+		novoUsuario.setEndereco(novoCliente.getEndereco());
+		novoUsuario.setLogin(novoCliente.getLogin());
+		novoUsuario.setNome(novoCliente.getNome());
+		novoUsuario.setSenha(novoCliente.getSenha());
+		novoUsuario.setTelefone(novoCliente.getTelefone());
+		usuarioRepository.save(novoUsuario); */
+		novoCliente.setDataCliente(OffsetDateTime.now());
+//		 return new ClienteResponseDto(clienteRepository.save(novoCliente));
+		 return clienteRepository.save(novoCliente);
 	}
 
 	public List<Cliente> listar() {
@@ -33,7 +41,9 @@ public class ClienteService {
 		return clienteRepository.findAll();
 	}
 	@Transactional
-	public ClienteResponseDto buscar(Long clienteId) {
-		return new ClienteResponseDto(clienteRepository.findById(clienteId));
+	public Optional<Cliente> buscar(Long clienteId) {
+		//falta implementar
+		//return new ClienteResponseDto(clienteRepository.findById(clienteId));
+		return clienteRepository.findById(clienteId);
 	}
 }
