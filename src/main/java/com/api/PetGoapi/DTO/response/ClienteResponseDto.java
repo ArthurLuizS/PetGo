@@ -1,18 +1,12 @@
 package com.api.PetGoapi.DTO.response;
 
-import java.util.Optional;
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
 
-import com.api.PetGoapi.model.Cliente;
-import com.api.PetGoapi.model.Endereco;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Accessors(chain = true)
+//falta implementar//
+/*
 public class ClienteResponseDto {
 
 	private String nome;
@@ -36,4 +30,4 @@ public class ClienteResponseDto {
 	}
 	
 	
-}
+} */
