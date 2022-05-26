@@ -6,9 +6,9 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LoginInput {
-	private String login;
+	private ClienteIdInput cliente;
+	private String email;
 	private String senha;
-	private String confirmaSenha;
 
 	
 }
