@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Entity
-@EqualsAndHashCode
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Animal {
 	@Id
 	@EqualsAndHashCode.Include

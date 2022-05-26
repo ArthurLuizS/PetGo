@@ -15,19 +15,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@DiscriminatorValue("funcionario")
-public class Funcionario extends Usuario {
-/*	@EqualsAndHashCode.Include
+//@DiscriminatorValue("funcionario")
+public class Funcionario {
+	@EqualsAndHashCode.Include
 	@Id
-//	@GeneratedValue(strategy = GenerationType.TABLE)
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	private OffsetDateTime dataFuncionario;*/
-	//private String cpf;
-/*	
-	private List<Conta> contas;
-	private List<Servico> servicos;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nome;
+	private String telefone;
+	private String login;
+	private String email;
+	private String senha;
+	private String cpf;
+	//private List<Conta> contas;
+//	private List<Servico> servicos;
 	
-	
+	/*
 	public Conta novaConta(Conta conta) {
 		Conta novaConta = new Conta();
 		novaConta.setNumeroConta(conta.getNumeroConta());

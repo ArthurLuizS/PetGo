@@ -5,8 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,19 +24,28 @@ import lombok.experimental.Accessors;
 @NoArgsConstructor
 @Setter
 @AllArgsConstructor
-@DiscriminatorValue("Cliente")
-public class Cliente extends Usuario{
 
-//	private OffsetDateTime dataCliente;
-//	private String cpf;
+//@DiscriminatorValue("Cliente")
+public class Cliente {
+	@EqualsAndHashCode.Include
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	private String nome;
+	private String telefone;
+	private String login;
+	private String email;
+	private String senha;
+	private String cpf;
+	private OffsetDateTime dataCliente;
 
-	
-@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)	
-private List<Animal> animais = new ArrayList<>();
+
 
 @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)	
 private List<Endereco> endereco = new ArrayList<>();
 	
+	  @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)	
+	  private List<Animal> animal = new ArrayList<>();
 	public Animal cadastrar(Animal novoAnimal) {
 		Animal animal = new Animal();
 		animal.setNome(novoAnimal.getNome());
