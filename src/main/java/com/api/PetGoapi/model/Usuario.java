@@ -1,5 +1,5 @@
 package com.api.PetGoapi.model;
-
+/* CLASSE QUE SERVIRÁ COMO PAI
 import java.time.OffsetDateTime;
 
 import javax.persistence.DiscriminatorColumn;
@@ -40,3 +40,4 @@ public abstract class Usuario {
 	
 	
 }
+*/
