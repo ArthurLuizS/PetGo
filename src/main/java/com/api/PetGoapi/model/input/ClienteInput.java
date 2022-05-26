@@ -1,8 +1,6 @@
 package com.api.PetGoapi.model.input;
 
 
-import java.time.OffsetDateTime;
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,12 +13,13 @@ public class ClienteInput {
 	private LoginInput login;
 	private String telefone;*/
 	
-
 	private String nome;
 	private String cpf;
 	private String telefone;
-	private String email;
 	private String login;
+	private String email;
 	private String senha;
+	private EnderecoInput endereco;
+	private AnimalInput animal;
 	
 }
