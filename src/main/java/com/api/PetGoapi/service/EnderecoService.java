@@ -15,4 +15,9 @@ public class EnderecoService {
 	public Endereco cadastrar (Endereco endereco) {
 		return enderecoRepository.save(endereco);
 	}
+
+	public Endereco Buscar(Long id) {
+		// TODO Auto-generated method stub
+		return enderecoRepository.getById(id);
+	}
 }

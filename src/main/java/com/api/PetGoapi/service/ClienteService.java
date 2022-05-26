@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.api.PetGoapi.DTO.response.ClienteResponseDto;
 import com.api.PetGoapi.model.Cliente;
 import com.api.PetGoapi.repository.ClienteRepository;
 
@@ -40,7 +41,7 @@ public class ClienteService {
 	
 		return clienteRepository.findAll();
 	}
-	@Transactional
+
 	public Optional<Cliente> buscar(Long clienteId) {
 		//falta implementar
 		//return new ClienteResponseDto(clienteRepository.findById(clienteId));
